@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+https://docs.mongodb.com/mongoid/current/tutorials/getting-started-rails/
 
-Things you may want to cover:
+following above tutorial by implementing mongodb
+-------------------------------------------------------------------------
 
-* Ruby version
+rails new blog --skip-active-record --skip-bundle
+cd blog
 
-* System dependencies
+gem 'mongoid', '6.0.3'
+# in Gemfile
 
-* Configuration
+bundle install
 
-* Database creation
+bin/rails g mongoid:config
+# mongoDB Atlas is the cloud solution, however, it is local mongodb server this time
 
-* Database initialization
+# config/mongoid.yml, no ActiveRecord, no database.yml
+server_selection_timeout: 1
 
-* How to run the test suite
+rails s
+# no more rails db:migrate
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+bin/rails g scaffold Post title:string body:text
